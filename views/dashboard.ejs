@@ -1,0 +1,47 @@
+<%- include('header') %>
+<br><br>
+
+<p name="username" id="username"><%= usern %></p>
+<p name="username" id="username"><%= rating %></p>
+<p name="username" id="username"><%= rank %></p>
+
+<hr>
+
+<form action="/homepage" method="POST">
+    <label for="tags">Choose question type:</label>
+    <select name="tags" id="tags">
+        <option value="dp">dp</option>
+        <option value="greedy">greedy</option>
+        <option value="binary%20search">binary search</option>
+        <option value="strings">strings</option>
+        <option value="adhoc">adhoc</option>
+        <option value="implementation">implementation</option>
+    </select>
+    <select name="rating" id="rating">
+        <option value="1000">1000</option>
+        <option value="1200">1200</option>
+        <option value="1400">1400</option>
+        <option value="1600">1600</option>
+        <option value="1800">1800</option>
+        <option value="2500">legend</option>
+    </select>
+    <br>
+    <input type="submit" value="search">
+</form>
+<br><br>
+<%QUES.forEach(function(ques){ %>
+<a href="https://codeforces.com/problemset/problem/<%=ques['contestId'] %>/<%=ques['index']%>"
+    target="_blank"><%= ques["name"]%></a>
+<br>
+<%})%>
+
+<hr>
+
+<h5>ques done by user </h5>
+
+<%DATA.forEach(function(info){ %>
+<p><%= info%></p>
+<br>
+<%})%>
+
+<%- include('footer') %>

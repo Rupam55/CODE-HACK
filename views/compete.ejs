@@ -1,0 +1,69 @@
+<%- include('header') %>
+
+<br>
+<div style="display: flex;">
+    <p style="margin-right: 30px;" name="username" id="username">current user</p>
+    <p style="margin-right: 30px;" name="username" id="username"><%= usern %></p>
+    <p style="margin-right: 30px;" name="username" id="username"><%= rating %></p>
+    <p name="username" id="username"><%= rank %></p>
+</div>
+<hr>
+<h3>custom contest area</h3>
+<hr>
+<div class="row">
+
+    <div class="col lg-6 sm-12">
+        <h5>contest between</h5>
+        <form action="/addpeople" method="POST">
+            <input type="checkbox" id="p1" name="person[]" value="rupam909">
+            <label for="p1">add rupam</label>
+            <hr>
+            <input type="checkbox" id="p2" name="person[]" value="absolute.naman">
+            <label for="p2">add naman </label>
+            <hr>
+            <input type="checkbox" id="p2" name="person[]" value="rv6023">
+            <label for="p2">add rahul</label>
+            <hr>
+            <input type="checkbox" id="p3" name="person[]" value="Z.e.a.l">
+            <label for="p3">add kv</label>
+            <hr>
+            <input type="checkbox" id="p4" name="person[]" value="gaurav??">
+            <label for="p4">add gaurav</label>
+            <hr>
+            <input type="checkbox" id="p5" name="person[]" value="mr.rishabh">
+            <label for="p5">add rishabh</label>
+            <hr>
+            <input type="checkbox" id="p6" name="person[]" value="sakti">
+            <label for="p6">add sakti</label>
+            <hr>
+            <input type="checkbox" id="p7" name="person[]" value="zealcoder">
+            <label for="p7">add ashwin</label>
+            <hr>
+            <input type="checkbox" id="p8" name="person[]" value="mastram">
+            <label for="p8">add abhinav</label>
+            <hr>
+
+            <!-- submit -->
+            <input type="submit" value="add people">
+        </form>
+    </div>
+
+    <div class="col lg-6 sm-12">
+        <h4>added people</h4>
+        <%Peo.forEach(function(peo){ %>
+            <p><%=peo%></p>
+            <hr>
+        <%})%>
+        <form action="/compete" method="post">
+            <input type="submit" value="start">
+        </form>
+        <%ques.forEach(function(ques){ %>
+            <a href="https://codeforces.com/problemset/problem/<%=ques['contestId'] %>/<%=ques['index']%>"
+                target="_blank"><%= ques["name"]%></a>
+            <hr>
+        <%})%>
+    </div>
+
+</div>
+
+<%- include('footer') %>
